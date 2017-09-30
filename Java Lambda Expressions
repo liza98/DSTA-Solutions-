@@ -1,0 +1,28 @@
+/* MY CODE STARTS HERE */
+public PerformOperation isOdd()
+{
+    return a -> (a & 1) == 1;
+}
+
+public PerformOperation isPrime()
+{
+    return a -> {
+        if (a <= 1) return false;
+        for (int i = 2; i * i <= a; i++)
+        {
+            if (a % i == 0) return false;
+        }
+        return true;
+    };
+}
+
+public PerformOperation isPalindrome()
+{
+    return a -> {
+        String s1 = String.valueOf(a);
+        String s2 = new StringBuilder(s1).reverse().toString();
+        return s1.equals(s2);
+    };
+}
+
+/* END OF MY CODE */ }
