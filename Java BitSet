@@ -1,0 +1,25 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt(), m = in.nextInt();
+        BitSet[] s = new BitSet[2];
+        s[0] = new BitSet(n);
+        s[1] = new BitSet(n);
+        String op;
+        int x, y;
+        while (m-- > 0) {
+            op = in.next();
+            x = in.nextInt() - 1; y = in.nextInt() - 1;
+            if (op.equals("AND")) s[x].and(s[y]);
+            else if (op.equals("OR")) s[x].or(s[y]);
+            else if (op.equals("XOR")) s[x].xor(s[y]);
+            else if (op.equals("FLIP")) s[x].flip(y+1);
+            else if (op.equals("SET")) s[x].set(y+1);
+            System.out.println(s[0].cardinality() + " " + s[1].cardinality());
+        }
+    }
+}
